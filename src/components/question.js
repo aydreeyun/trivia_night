@@ -18,11 +18,7 @@ const Question = () => {
 
   const handleAnswer = e => {
     e.preventDefault();
-    setUserAnswer(e.target.value)
-
-    const newScore = score + 50;
-
-    if (userAnswer === correct) setScore(newScore);
+    setUserAnswer(e.target.value);
   }
 
   const handleNextQuestion = e => {
@@ -38,6 +34,7 @@ const Question = () => {
     shuffle(data);
 
     setQuestionNum(0);
+    setScore(0);
   }
 
 
@@ -49,7 +46,11 @@ const Question = () => {
 
     setAnswers(choices);
     setCorrect(data[questionNum].correct);
-  }, [questionNum])
+  }, [questionNum]);
+
+  useEffect(() => {
+    if (userAnswer === correct) setScore(score + 50);
+  }, [userAnswer])
 
 
   if (questionNum < 10) {
@@ -57,12 +58,13 @@ const Question = () => {
       <div>
         <h1>SCORE: {score}</h1>
         <p>{question}</p>
-        {userAnswer && userAnswer === correct ? <h1>CORRECT</h1> : null}
+        {userAnswer === correct ? <h1>CORRECT</h1> : null}
         {answers.map((el, i) => (
           <button 
             onClick={e => handleAnswer(e)}
             key={i}
             value={el}
+            disabled={userAnswer ? true : false}
           >
               {el}
           </button>
