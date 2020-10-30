@@ -1,0 +1,20 @@
+.splash {
+  background: #005;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  width: 700px;
+  height: 500px;
+  box-sizing: border-box;
+  padding: 50px 30px;
+  color: white;
+
+  .splash-header {
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+  }
+}
