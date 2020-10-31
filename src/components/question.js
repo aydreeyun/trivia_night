@@ -9,7 +9,7 @@ const Question = () => {
   const [answers, setAnswers] = useState([]);
   const [correct, setCorrect] = useState("");
   const [userAnswer, setUserAnswer] = useState(null);
-  const [questionNum, setQuestionNum] = useState(10);
+  const [questionNum, setQuestionNum] = useState(0);
 
   // On component did mount, shuffle the array of questions
   useEffect(() => shuffle(data), []);
