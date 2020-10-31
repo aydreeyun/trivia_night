@@ -1,20 +1,75 @@
 .splash {
-  background: #005;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 30px;
-  width: 700px;
-  height: 500px;
-  box-sizing: border-box;
-  padding: 50px 30px;
-  color: white;
 
-  .splash-header {
-    font-size: 30px;
+  .splash-main {
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 850px;
+    height: 600px;
+    box-sizing: border-box;
+    padding: 50px;
+    background: white;
+    color: #005;
     display: flex;
-    justify-content: center;
-    font-weight: 900;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+  
+    .splash-header {
+      font-size: 30px;
+      display: flex;
+      justify-content: center;
+      font-weight: 900;
+    }
+  
+    .splash-rules {
+      font-size: 22px;
+      font-weight: 600;
+      margin: 60px 0;
+
+      li {
+        margin-top: 20px;
+        list-style: disc inside;
+      }
+    }
+  
+    .splash-button {
+      background: #005;
+      border: 0;
+      cursor: pointer;
+      width: 80%;
+      height: 75px;
+      border-radius: 30px;
+      font-weight: 900;
+      font-size: 30px;
+      color: white;
+      transition: background 0.2s;
+    }
+  
+    .splash-button:hover {
+      background: lightblue;
+    }
+  }
+
+  .splash-footer {
+    width: 95%;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 90px;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    color: white;
+    border-top: 1px solid white;
+
+    a {
+      text-decoration: none;
+      color: white;
+      margin-left: 30px;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: lightblue
+    }
   }
 }

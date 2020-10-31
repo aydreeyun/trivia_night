@@ -9,7 +9,7 @@ const Question = () => {
   const [answers, setAnswers] = useState([]);
   const [correct, setCorrect] = useState("");
   const [userAnswer, setUserAnswer] = useState(null);
-  const [questionNum, setQuestionNum] = useState(0);
+  const [questionNum, setQuestionNum] = useState(10);
 
   // On component did mount, shuffle the array of questions
   useEffect(() => shuffle(data), []);
@@ -37,24 +37,27 @@ const Question = () => {
   }
 
   const findCorrectAnswer = () => {
-    const choices = Array.from(document.querySelectorAll(".choice"));
+    const questionAnswers = Array.from(document.querySelectorAll(".question-answer"));
 
-    for (let i = 0; i < choices.length; i++) {
-      const choice = choices[i];
+    for (let i = 0; i < questionAnswers.length; i++) {
+      const answer = questionAnswers[i];
 
-      if (choice.value === correct) choice.classList.add('green');
-      if (userAnswer === choice.value && userAnswer !== correct) choice.classList.add('red');
+      answer.classList.add('gray');
+
+      if (answer.value === correct) answer.classList.add('green');
+      if (userAnswer === answer.value && userAnswer !== correct) answer.classList.add('red');
     }
   }
 
   const resetButtons = () => {
-    const choices = Array.from(document.querySelectorAll(".choice"));
+    const questionAnswers = Array.from(document.querySelectorAll(".question-answer"));
 
-    for (let i = 0; i < choices.length; i++) {
-      const choice = choices[i];
+    for (let i = 0; i < questionAnswers.length; i++) {
+      const answer = questionAnswers[i];
 
-      choice.classList.remove('green');
-      choice.classList.remove('red');
+      answer.classList.remove('green');
+      answer.classList.remove('red');
+      answer.classList.remove('gray');
     }
   }
 
@@ -78,10 +81,11 @@ const Question = () => {
     if (userAnswer === correct) setScore(score + 10);
   }, [userAnswer]);
 
+  // Answer choices
   const renderAnswers = () => (
     answers.map((el, i) => (
       <button 
-        className="choice"
+        className="question-answer"
         onClick={e => handleAnswer(e)}
         key={i}
         value={el}
@@ -92,24 +96,38 @@ const Question = () => {
     ))
   );
 
-
   if (questionNum < 10) {
     return (
-      <div>
-        <h1>QUESTION {questionNum + 1} / 10</h1>
-        <h1>SCORE: {score}</h1>
-        <p>{question}</p>
-        {userAnswer === correct ? <h1>CORRECT</h1> : null}
-        {renderAnswers()}
-        {userAnswer ? <button onClick={e => handleNextQuestion(e)}>Next Question</button> : null}
+      <div className="question">
+        <div className="question-header">
+          <div className="question-num">QUESTION {questionNum + 1} / 10</div>
+          <div className="question-score">SCORE: {score}</div>
+        </div>
+        <div className="question-main">{question}</div>
+        <div className="question-answer-main">
+          {renderAnswers()}
+        </div>
+        <div className="question-next">
+          {userAnswer ? <button className="question-next-button" onClick={e => handleNextQuestion(e)}>{'>>'}</button> : null}
+        </div>
       </div>
     )
   } else {
     return (
-      <div>
-        <h1>DONE</h1>
-        <div>{score}</div>
-        <button onClick={e => handlePlayAgain(e)}>Play Again</button>
+      <div className="trivia-end">
+        <div className="trivia-end-main">
+          <div className="trivia-end-score">Your final score: {score}</div>
+          <button className="trivia-end-button"
+            onClick={e => handlePlayAgain(e)}>
+              PLAY AGAIN
+          </button>
+        </div>
+        <div className="splash-footer">
+          <p>Adrian Kim © 2020</p>
+          <a href="https://www.linkedin.com/in/adriantaehyunkim/" target="_blank">LinkedIn</a>
+          <a href="https://aydreeyun.github.io/" target="_blank">Portfolio</a>
+          <a href="https://github.com/aydreeyun" target="_blank">GitHub</a>
+        </div>
       </div>
     )
   }
