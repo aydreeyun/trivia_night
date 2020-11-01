@@ -103,13 +103,16 @@ const Question = () => {
           <div className="question-num">QUESTION {questionNum + 1} / 10</div>
           <div className="question-score">SCORE: {score}</div>
         </div>
-        <div className="question-main">{question}</div>
+        <div className="question-mid">
+          <div className="question-main">{question}</div>
+          <div className="question-next">
+            {userAnswer ? <button className="question-next-button" onClick={e => handleNextQuestion(e)}>{'>>'}</button> : null}
+          </div>
+        </div>
         <div className="question-answer-main">
           {renderAnswers()}
         </div>
-        <div className="question-next">
-          {userAnswer ? <button className="question-next-button" onClick={e => handleNextQuestion(e)}>{'>>'}</button> : null}
-        </div>
+        
       </div>
     )
   } else {
@@ -122,7 +125,7 @@ const Question = () => {
               PLAY AGAIN
           </button>
         </div>
-        <div className="splash-footer">
+        <div className="trivia-end-footer">
           <p>Adrian Kim © 2020</p>
           <a href="https://www.linkedin.com/in/adriantaehyunkim/" target="_blank">LinkedIn</a>
           <a href="https://aydreeyun.github.io/" target="_blank">Portfolio</a>

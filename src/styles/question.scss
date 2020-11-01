@@ -1,6 +1,5 @@
 .question {
   color: white;
-  position: relative;
 
   .question-header {
     margin: 0 auto;
@@ -10,43 +9,82 @@
     height: 20px;
     padding: 50px 0;
     font-size: 24px;
+    min-width: 1200px;
   }
 
-  .question-main {
+  .question-mid {
     width: 70%;
-    height: 500px;
-    background: white;
+    display: grid;
+    grid-template-columns: 90% 10%;
     margin: 0 auto;
-    color: #005;
-    font-size: 50px;
-    font-weight: 900;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    text-align: center;
-    padding: 75px;
-    border-radius: 30px;
-    margin-top: 20px;
-    line-height: 1.3;
+    min-width: 1200px;
+
+    .question-main {
+      width: 100%;
+      height: 500px;
+      background: white;
+      margin: 0 auto;
+      color: #005;
+      font-size: 50px;
+      font-weight: 900;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 75px;
+      border-radius: 30px;
+      margin-top: 20px;
+      line-height: 1.3;
+      margin-left: 75px;
+    }
+
+    .question-next {
+      margin-left: 200px;
+      margin-top: 220px;
+  
+      .question-next-button {
+        border: 0;
+        background: white;
+        color: #005;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+        height: 100px;
+        width: 100px;
+        border-radius: 50px;
+        font-size: 24px;
+        font-weight: 900;
+      }
+  
+      .question-next-button:hover {
+        background: lightblue;
+        color: white;
+      }
+    }
   }
 
   .question-answer-main {
     margin: 0 auto;
     margin-top: 30px;
     width: 80%;
+    min-width: 1200px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100px 100px;
+    column-gap: 20px;
+    row-gap: 20px;
 
     .question-answer {
       background: white;
       color: #005;
       padding: 0;
-      height: 100px;
-      width: 48%;
+      height: 100%;
+      width: 100%;
       border: 0;
       border-radius: 10px;
       font-size: 30px;
       font-weight: 900;
-      margin-right: 20px;
+      // margin-right: 20px;
       margin-bottom: 20px;
       cursor: pointer;
       transition: background 0.2s, color 0.2s;
@@ -75,30 +113,6 @@
       pointer-events: none;
     }
   }
-
-  .question-next {
-    position: absolute;
-    right: 50px;
-    top: 38%;
-
-    .question-next-button {
-      border: 0;
-      background: white;
-      color: #005;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      height: 100px;
-      width: 100px;
-      border-radius: 50px;
-      font-size: 24px;
-      font-weight: 900;
-    }
-
-    .question-next-button:hover {
-      background: lightblue;
-      color: white;
-    }
-  }
 }
 
 .trivia-end {
@@ -119,8 +133,9 @@
     border-radius: 30px;
   
     .trivia-end-score {
-      font-size: 36px;
+      font-size: 50px;
       font-weight: 900;
+      margin-top: 20px;
     }
   
     .trivia-end-button {
@@ -141,7 +156,7 @@
     }
   }
 
-  .splash-footer {
+  .trivia-end-footer {
     width: 95%;
     height: 100px;
     margin: 0 auto;
