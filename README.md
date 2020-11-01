@@ -3,6 +3,12 @@ Welcome to Trivia Night! This is a trivia application that was created with Reac
 
 The instructions for how to play are listed on the landing page.
 
+## Technologies Used
+
+* React
+* Node.js
+* Sass/SCSS
+
 ## Notable Features
 
 * __Question and Answer shuffling__ - I created a method that will successfully shuffle the array of questions and their answer choices in order to make each round of trivia different from the last
