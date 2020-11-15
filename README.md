@@ -1,5 +1,5 @@
 # Trivia Night
-Welcome to Trivia Night! This is a trivia application that was created with React and data being extracted from a JSON file.
+Welcome to [Trivia Night](https://aydreeyun.github.io/trivia_night)! This is a trivia application that was created with React and data being extracted from a JSON file.
 
 The instructions for how to play are listed on the landing page.
 
